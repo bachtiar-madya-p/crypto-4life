@@ -21,4 +21,17 @@ public class Property {
     public static final String MAIL_SMTP_STARTTLS_ENABLE = "mail.smtp.starttls.enable";
     public static final String MAIL_SMTP_USERNAME = "mail.smtp.username";
     public static final String MAIL_SMTP_PASSWORD = "mail.smtp.password";
+
+    // Bot Config
+    public static final String BOT_SCANNER_ENABLED = "bot.scanner.enabled";
+    public static final String BOT_SCANNER_INTERVAL = "bot.scanner.interval";
+
+    // Indodax Config
+    public static final String IDX_BASE_URL = "idx.market.base-url";
+    public static final String IDX_SUMMARY_URL = "idx.market.summary-url";
+    public static final String IDX_CANDLE_URL = "idx.market.candle-url";
+
+    public static final String IDX_CANDLE_TIME_FRAME = "idx.market.time-frame";
+    public static final String IDX_CANDLE_LIMIT = "idx.market.candle-limit";
+
 }

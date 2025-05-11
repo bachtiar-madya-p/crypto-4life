@@ -1,5 +1,6 @@
 package id.bmp.miner.util.json;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +36,7 @@ public class JsonUtil {
 
     public static <T> T fromJson(String json, Class<T> clazz) {
         final String methodName = "fromJson";
-        log.info(json);
+        //log.info(json);
         try {
             return objMapper.readValue(json, clazz);
         } catch (IOException e) {
@@ -48,6 +49,16 @@ public class JsonUtil {
             log.error(paramLogErrorFormat, methodName, "Could not invoke Default Constructor", ex);
         }
 
+        return null;
+    }
+
+    public static <T> T fromJson(String json, TypeReference<T> typeRef) {
+        final String methodName = "fromJson";
+        try {
+            return objMapper.readValue(json, typeRef);
+        } catch (IOException e) {
+            log.error(paramLogErrorFormat, methodName, e);
+        }
         return null;
     }
 

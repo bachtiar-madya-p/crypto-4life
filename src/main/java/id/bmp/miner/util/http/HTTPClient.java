@@ -3,6 +3,7 @@ package id.bmp.miner.util.http;
 import id.bmp.miner.util.http.handler.HTTPResponseHandler;
 import id.bmp.miner.util.http.helper.HTTPClientHelper;
 import id.bmp.miner.util.http.model.*;
+import id.bmp.miner.util.log.AppLogger;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -29,14 +30,16 @@ import java.util.List;
 
 @Component
 public class HTTPClient extends BaseHttpClient {
+
     private static Logger log;
+
     private static final HTTPResponseHandler responseHandler = new HTTPResponseHandler();
 
     private static final String PUT = "put";
     private static final String DELETE = "delete";
     private static final String POST = "post";
 
-    private HTTPClient() {
+    public HTTPClient() {
         log = getLogger(this.getClass());
     }
 
@@ -56,7 +59,6 @@ public class HTTPClient extends BaseHttpClient {
     }
 
     public static HTTPResponse get(final HTTPRequest request, HTTPParameter parameters) {
-
         HTTPResponse response = new HTTPResponse();
 
         CookieStore cookieStore = HTTPClientHelper.getCookieStore(request);
@@ -66,10 +68,9 @@ public class HTTPClient extends BaseHttpClient {
             URIBuilder builder = new URIBuilder(request.getUrl());
 
             // Add URL Parameters
-            if (HTTPClientHelper.validateHttpParameter(parameters)) {
+            if ((parameters != null && !parameters.isEmpty()) && HTTPClientHelper.validateHttpParameter(parameters)) {
                 parameters.entrySet().forEach(entry -> builder.addParameter(entry.getKey(), entry.getValue()));
             }
-            log.info(builder.toString());
             HttpGet httpRequest = new HttpGet(builder.build());
 
             // Set Headers
@@ -79,7 +80,7 @@ public class HTTPClient extends BaseHttpClient {
             response = execute(client, httpRequest, cookieStore);
 
         } catch (Exception ex) {
-            log.error("get", ex.getMessage(), ex);
+            log.error("get", ex);
         }
         return response;
     }
@@ -365,7 +366,6 @@ public class HTTPClient extends BaseHttpClient {
         }
 
         // create an SSL Socket Factory to use the SSLContext with the trust self signed certificate strategy
-        // NoopHostnameVerifier added as there is hostname verification in the Prod logs
         SSLConnectionSocketFactory connFactory = new SSLConnectionSocketFactory(sslContext, NoopHostnameVerifier.INSTANCE);
 
         return HttpClients.custom().setDefaultCookieStore(cookieStore).setSSLSocketFactory(connFactory)
