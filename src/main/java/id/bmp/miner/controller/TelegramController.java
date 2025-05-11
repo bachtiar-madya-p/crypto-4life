@@ -19,7 +19,7 @@ public class TelegramController extends BaseController {
         log = getLogger(this.getClass());
     }
 
-    public boolean sendMessage(Telegram telegram) {
+    public boolean sendMessage(String message) {
         String methodName = "sendMessage";
         start(methodName);
         boolean result = false;
@@ -28,7 +28,7 @@ public class TelegramController extends BaseController {
             String chatID = EncryptionManager.getInstance().decrypt(getProperty(Property.TELEGRAM_CHAT_ID));
 
             String payload = "chat_id=" + URLEncoder.encode(chatID, String.valueOf(StandardCharsets.UTF_8))
-                    + "&text=" + URLEncoder.encode(telegram.getMessage(), String.valueOf(StandardCharsets.UTF_8));
+                    + "&text=" + URLEncoder.encode(message, String.valueOf(StandardCharsets.UTF_8));
 
             HTTPRequest request = new HTTPRequest.Builder(url).setContentType(HTTPContentType.APPLICATION_FORM_URLENCODED).build();
 

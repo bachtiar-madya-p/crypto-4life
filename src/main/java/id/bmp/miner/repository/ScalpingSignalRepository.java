@@ -23,10 +23,10 @@ public class ScalpingSignalRepository extends BaseRepository {
         List<ScalpingSignal> scalpingSignals = new ArrayList<>();
 
         String sql = "SELECT id, market, signal_time, buy_price, buy_amount, initial_capital, sell_price, profit, ema_fast, " +
-                "ema_slow, rsi, body_ratio, volume, avg_volume, is_body_strong, is_volume_spike, signal_type, is_executed, " +
-                "is_open_position " +
+                "ema_slow, rsi, body_ratio, volume, avg_volume, is_body_strong AS bodyStrong, is_volume_spike AS volumeSpike, signal_type, is_executed AS executed, " +
+                "is_open_position AS openPosition, is_pump AS pompom " +
                 "FROM scalping_signal " +
-                "WHERE is_open_position = true;";
+                "WHERE is_open_position = true";
         try (Handle h = getHandle(); Query query = h.createQuery(sql)) {
             scalpingSignals = query.mapToBean(ScalpingSignal.class).list();
         } catch (Exception ex) {
@@ -46,12 +46,12 @@ public class ScalpingSignalRepository extends BaseRepository {
                 "    market, signal_time, buy_price, buy_amount, initial_capital," +
                 "    sell_price, profit, ema_fast, ema_slow, rsi, body_ratio," +
                 "    volume, avg_volume, is_body_strong, is_volume_spike," +
-                "    signal_type, is_executed, is_open_position" +
+                "    signal_type, is_executed, is_open_position, is_pump" +
                 ") VALUES (" +
                 "    :market, :signalTime, :buyPrice, :buyAmount, :initialCapital," +
                 "    :sellPrice, :profit, :emaFast, :emaSlow, :rsi, :bodyRatio," +
-                "    :volume, :avgVolume, :isBodyStrong, :isVolumeSpike," +
-                "    :signalType, :isExecuted, :isOpenPosition" +
+                "    :volume, :avgVolume, :bodyStrong, :volumeSpike," +
+                "    :signalType, :executed, :openPosition, :pompom" +
                 ")";
 
         try (Handle h = getHandle(); Update update = h.createUpdate(sql)) {

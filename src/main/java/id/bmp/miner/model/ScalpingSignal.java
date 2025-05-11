@@ -16,12 +16,12 @@ public class ScalpingSignal {
     private double bodyRatio;
     private double volume;
     private double avgVolume;
-    private boolean isBodyStrong;
-    private boolean isVolumeSpike;
+    private boolean bodyStrong;
+    private boolean volumeSpike;
     private String signalType;
-    private boolean isExecuted;
-    private boolean isOpenPosition;
-
+    private boolean executed;
+    private boolean openPosition;
+    private boolean pompom;
 
     public ScalpingSignal() {
     }
@@ -139,19 +139,19 @@ public class ScalpingSignal {
     }
 
     public boolean isBodyStrong() {
-        return isBodyStrong;
+        return bodyStrong;
     }
 
     public void setBodyStrong(boolean bodyStrong) {
-        isBodyStrong = bodyStrong;
+        this.bodyStrong = bodyStrong;
     }
 
     public boolean isVolumeSpike() {
-        return isVolumeSpike;
+        return volumeSpike;
     }
 
     public void setVolumeSpike(boolean volumeSpike) {
-        isVolumeSpike = volumeSpike;
+        this.volumeSpike = volumeSpike;
     }
 
     public String getSignalType() {
@@ -163,18 +163,26 @@ public class ScalpingSignal {
     }
 
     public boolean isExecuted() {
-        return isExecuted;
+        return executed;
     }
 
     public void setExecuted(boolean executed) {
-        isExecuted = executed;
+        this.executed = executed;
     }
 
     public boolean isOpenPosition() {
-        return isOpenPosition;
+        return openPosition;
     }
 
     public void setOpenPosition(boolean openPosition) {
-        isOpenPosition = openPosition;
+        this.openPosition = openPosition;
+    }
+
+    public boolean isPompom() {
+        return pompom;
+    }
+
+    public void setPompom(boolean pompom) {
+        this.pompom = pompom;
     }
 }

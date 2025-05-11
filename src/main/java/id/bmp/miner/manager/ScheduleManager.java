@@ -4,6 +4,7 @@ import com.github.kagkarlsson.scheduler.task.helper.RecurringTask;
 import com.github.kagkarlsson.scheduler.task.helper.Tasks;
 import com.github.kagkarlsson.scheduler.task.schedule.FixedDelay;
 import id.bmp.miner.configuration.DatabaseConfig;
+import id.bmp.miner.job.ScalpingCalculationJob;
 import id.bmp.miner.job.ScalpingScannerJob;
 import id.bmp.miner.util.property.Property;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,10 @@ public class ScheduleManager extends BaseManager {
     DatabaseConfig databaseConfig;
 
     @Autowired
-    ScalpingScannerJob ScalpingScannerJob;
+    ScalpingScannerJob scalpingScannerJob;
+
+    @Autowired
+    ScalpingCalculationJob scalpingCalculationJob;
 
     public ScheduleManager() {
         log = getLogger(this.getClass());
@@ -30,20 +34,19 @@ public class ScheduleManager extends BaseManager {
         return Tasks.recurring("scalpingScannerTask", FixedDelay.ofMinutes(interval))
                 .execute((inst, ctx) -> {
                     start(methodName);
-                    ScalpingScannerJob.run();
+                    scalpingScannerJob.run();
                     completed(methodName);
                 });
     }
-/*
     @Bean
-    public RecurringTask<Void> sendDailySummary() {
-        String methodName = "sendDailySummary";
-
-        return Tasks.recurring("sendDailySummary", CronSchedule.parse("0 0 8 * * *"))
+    public RecurringTask<Void> scalpingCalculationTask() {
+        String methodName = "scalpingCalculationTask";
+        int interval = PropertyManager.getInstance().getIntProperty(Property.BOT_SCANNER_INTERVAL);
+        return Tasks.recurring("scalpingCalculationTask", FixedDelay.ofMinutes(interval))
                 .execute((inst, ctx) -> {
                     start(methodName);
-                    // logic kirim rekap ke Telegram
+                    scalpingCalculationJob.run();
                     completed(methodName);
                 });
-    }*/
+    }
 }

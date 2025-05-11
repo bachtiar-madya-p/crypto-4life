@@ -29,12 +29,9 @@ public class TelegramService extends BaseService{
 
         ResponseEntity<ServiceResponse> response = buildBadRequestResponse();
 
-        Telegram telegram = new Telegram();
-        telegram.setMessage(body);
-
         boolean telegramEnabled = getBooleanProperty(Property.TELEGRAM_BOT_ENABLED);
         if (telegramEnabled) {
-            boolean sent = telegramController.sendMessage(telegram);
+            boolean sent = telegramController.sendMessage(body);
             if (sent) {
                 response = buildSuccessResponse();
             } else {
