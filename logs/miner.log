@@ -1,0 +1,1015 @@
+2025-05-11 22:55:48.287 INFO  Application - Starting Application using Java 1.8.0_421 on DESKTOP-5USB974 with PID 29268 (E:\Greatest-Art-Work\Persona\crypto-4life\target\classes started by HitMan in E:\Greatest-Art-Work\Persona\crypto-4life)
+2025-05-11 22:55:48.305 DEBUG Application - Running with Spring Boot v2.5.4, Spring v5.3.9
+2025-05-11 22:55:48.313 INFO  Application - No active profile set, falling back to default profiles: default
+2025-05-11 22:55:52.479 INFO  ConfigurationClassEnhancer - @Bean method PropertyManager.propertyConfigInDev is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2025-05-11 22:55:52.865 INFO  TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2025-05-11 22:55:53.023 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4604 ms
+2025-05-11 22:55:55.286 INFO  EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-11 22:55:55.362 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-11 22:55:55.363 INFO  DispatcherServlet - Completed initialization in 1 ms
+2025-05-11 22:55:55.364 INFO  TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path '/miner'
+2025-05-11 22:55:55.384 INFO  Application - Started Application in 8.1 seconds (JVM running for 10.944)
+2025-05-11 22:55:55.389 INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-11 22:55:55.983 INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-11 22:58:14.923 DEBUG TelegramService - [sendEmail] Request : "POST /mail/send"
+2025-05-11 22:58:14.926 DEBUG TelegramService - [sendEmail] {
+  "body" : "Moon Shoot! 🚀"
+}
+2025-05-11 22:58:14.937 DEBUG TelegramController - [sendMessage] Start
+2025-05-11 22:58:14.938 DEBUG EncryptionManager - [Constructor] Start
+2025-05-11 22:58:14.939 DEBUG EncryptionManager - [Constructor] Completed
+2025-05-11 22:58:14.940 ERROR TelegramController - sendMessage
+java.lang.IllegalArgumentException: Illegal base64 character 3a
+	at java.util.Base64$Decoder.decode0(Base64.java:714) ~[?:1.8.0_421]
+	at java.util.Base64$Decoder.decode(Base64.java:526) ~[?:1.8.0_421]
+	at java.util.Base64$Decoder.decode(Base64.java:549) ~[?:1.8.0_421]
+	at manager.id.bmp.miner.EncryptionManager.decrypt(EncryptionManager.java:94) ~[classes/:?]
+	at manager.id.bmp.miner.EncryptionManager.decrypt(EncryptionManager.java:88) ~[classes/:?]
+	at controller.id.bmp.miner.TelegramController.buildTelegramUrl(TelegramController.java:57) ~[classes/:?]
+	at controller.id.bmp.miner.TelegramController.sendMessage(TelegramController.java:28) [classes/:?]
+	at controller.id.bmp.miner.TelegramController$$FastClassBySpringCGLIB$$2eee0e2c.invoke(<generated>) [classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) [spring-core-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) [spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) [spring-aop-5.3.9.jar:5.3.9]
+	at controller.id.bmp.miner.TelegramController$$EnhancerBySpringCGLIB$$f9cf4a3f.sendMessage(<generated>) [classes/:?]
+	at service.rest.id.bmp.miner.TelegramService.sendTelegram(TelegramService.java:47) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_421]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_421]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_421]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_421]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) [spring-boot-actuator-2.5.4.jar:2.5.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_421]
+2025-05-11 22:58:14.956 DEBUG TelegramService - [sendEmail] Response : {
+  "code" : 400,
+  "message" : "Bad request"
+}
+2025-05-11 22:58:14.956 DEBUG TelegramService - [sendEmail] Completed
+2025-05-11 22:59:46.242 INFO  Application - Starting Application using Java 1.8.0_421 on DESKTOP-5USB974 with PID 26116 (E:\Greatest-Art-Work\Persona\crypto-4life\target\classes started by HitMan in E:\Greatest-Art-Work\Persona\crypto-4life)
+2025-05-11 22:59:46.283 DEBUG Application - Running with Spring Boot v2.5.4, Spring v5.3.9
+2025-05-11 22:59:46.283 INFO  Application - No active profile set, falling back to default profiles: default
+2025-05-11 22:59:47.079 INFO  ConfigurationClassEnhancer - @Bean method PropertyManager.propertyConfigInDev is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2025-05-11 22:59:47.423 INFO  TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2025-05-11 22:59:47.553 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1232 ms
+2025-05-11 22:59:48.920 INFO  EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-11 22:59:48.956 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-11 22:59:48.957 INFO  DispatcherServlet - Completed initialization in 1 ms
+2025-05-11 22:59:48.958 INFO  TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path '/miner'
+2025-05-11 22:59:48.971 INFO  Application - Started Application in 3.114 seconds (JVM running for 4.663)
+2025-05-11 22:59:48.975 INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-11 22:59:49.216 INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-11 22:59:52.593 DEBUG TelegramService - [sendTelegram] Request : "POST /telegram/send"
+2025-05-11 22:59:52.603 DEBUG TelegramController - [sendMessage] Start
+2025-05-11 22:59:52.605 DEBUG EncryptionManager - [Constructor] Start
+2025-05-11 22:59:52.605 DEBUG EncryptionManager - [Constructor] Completed
+2025-05-11 22:59:52.607 ERROR TelegramController - sendMessage
+java.lang.IllegalArgumentException: Illegal base64 character 3a
+	at java.util.Base64$Decoder.decode0(Base64.java:714) ~[?:1.8.0_421]
+	at java.util.Base64$Decoder.decode(Base64.java:526) ~[?:1.8.0_421]
+	at java.util.Base64$Decoder.decode(Base64.java:549) ~[?:1.8.0_421]
+	at manager.id.bmp.miner.EncryptionManager.decrypt(EncryptionManager.java:94) ~[classes/:?]
+	at manager.id.bmp.miner.EncryptionManager.decrypt(EncryptionManager.java:88) ~[classes/:?]
+	at controller.id.bmp.miner.TelegramController.buildTelegramUrl(TelegramController.java:57) ~[classes/:?]
+	at controller.id.bmp.miner.TelegramController.sendMessage(TelegramController.java:28) [classes/:?]
+	at controller.id.bmp.miner.TelegramController$$FastClassBySpringCGLIB$$2eee0e2c.invoke(<generated>) [classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) [spring-core-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) [spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) [spring-aop-5.3.9.jar:5.3.9]
+	at controller.id.bmp.miner.TelegramController$$EnhancerBySpringCGLIB$$17173376.sendMessage(<generated>) [classes/:?]
+	at service.rest.id.bmp.miner.TelegramService.sendTelegram(TelegramService.java:46) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_421]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_421]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_421]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_421]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) [spring-boot-actuator-2.5.4.jar:2.5.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_421]
+2025-05-11 22:59:52.619 DEBUG TelegramService - [sendTelegram] Response : {
+  "code" : 400,
+  "message" : "Bad request"
+}
+2025-05-11 22:59:52.619 DEBUG TelegramService - [sendTelegram] Completed
+2025-05-11 23:01:13.645 INFO  Application - Starting Application using Java 1.8.0_421 on DESKTOP-5USB974 with PID 33224 (E:\Greatest-Art-Work\Persona\crypto-4life\target\classes started by HitMan in E:\Greatest-Art-Work\Persona\crypto-4life)
+2025-05-11 23:01:13.653 DEBUG Application - Running with Spring Boot v2.5.4, Spring v5.3.9
+2025-05-11 23:01:13.655 INFO  Application - No active profile set, falling back to default profiles: default
+2025-05-11 23:01:14.727 INFO  ConfigurationClassEnhancer - @Bean method PropertyManager.propertyConfigInDev is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2025-05-11 23:01:15.366 INFO  TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2025-05-11 23:01:15.501 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1795 ms
+2025-05-11 23:01:17.380 INFO  EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-11 23:01:17.448 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-11 23:01:17.448 INFO  DispatcherServlet - Completed initialization in 0 ms
+2025-05-11 23:01:17.450 INFO  TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path '/miner'
+2025-05-11 23:01:17.466 INFO  Application - Started Application in 4.426 seconds (JVM running for 6.242)
+2025-05-11 23:01:17.475 INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-11 23:01:17.822 INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-11 23:01:22.755 DEBUG TelegramService - [sendTelegram] Request : "POST /telegram/send"
+2025-05-11 23:01:22.797 DEBUG TelegramController - [sendMessage] Start
+2025-05-11 23:01:22.801 DEBUG EncryptionManager - [Constructor] Start
+2025-05-11 23:01:22.802 DEBUG EncryptionManager - [Constructor] Completed
+2025-05-11 23:01:22.803 ERROR TelegramController - sendMessage
+java.lang.IllegalArgumentException: Illegal base64 character 3a
+	at java.util.Base64$Decoder.decode0(Base64.java:714) ~[?:1.8.0_421]
+	at java.util.Base64$Decoder.decode(Base64.java:526) ~[?:1.8.0_421]
+	at java.util.Base64$Decoder.decode(Base64.java:549) ~[?:1.8.0_421]
+	at manager.id.bmp.miner.EncryptionManager.decrypt(EncryptionManager.java:94) ~[classes/:?]
+	at manager.id.bmp.miner.EncryptionManager.decrypt(EncryptionManager.java:88) ~[classes/:?]
+	at controller.id.bmp.miner.TelegramController.buildTelegramUrl(TelegramController.java:57) ~[classes/:?]
+	at controller.id.bmp.miner.TelegramController.sendMessage(TelegramController.java:28) [classes/:?]
+	at controller.id.bmp.miner.TelegramController$$FastClassBySpringCGLIB$$2eee0e2c.invoke(<generated>) [classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) [spring-core-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) [spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) [spring-aop-5.3.9.jar:5.3.9]
+	at controller.id.bmp.miner.TelegramController$$EnhancerBySpringCGLIB$$ed644cb7.sendMessage(<generated>) [classes/:?]
+	at service.rest.id.bmp.miner.TelegramService.sendTelegram(TelegramService.java:43) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_421]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_421]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_421]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_421]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) [spring-boot-actuator-2.5.4.jar:2.5.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_421]
+2025-05-11 23:01:22.825 DEBUG TelegramService - [sendTelegram] Response : {
+  "code" : 400,
+  "message" : "Bad request"
+}
+2025-05-11 23:01:22.825 DEBUG TelegramService - [sendTelegram] Completed
+2025-05-11 23:02:06.828 DEBUG TelegramService - [sendTelegram] Request : "POST /telegram/send"
+2025-05-11 23:02:06.830 DEBUG TelegramController - [sendMessage] Start
+2025-05-11 23:02:14.975 ERROR TelegramController - sendMessage
+java.lang.IllegalArgumentException: Illegal base64 character 3a
+	at java.util.Base64$Decoder.decode0(Base64.java:714) ~[?:1.8.0_421]
+	at java.util.Base64$Decoder.decode(Base64.java:526) ~[?:1.8.0_421]
+	at java.util.Base64$Decoder.decode(Base64.java:549) ~[?:1.8.0_421]
+	at manager.id.bmp.miner.EncryptionManager.decrypt(EncryptionManager.java:94) ~[classes/:?]
+	at manager.id.bmp.miner.EncryptionManager.decrypt(EncryptionManager.java:88) ~[classes/:?]
+	at controller.id.bmp.miner.TelegramController.buildTelegramUrl(TelegramController.java:57) ~[classes/:?]
+	at controller.id.bmp.miner.TelegramController.sendMessage(TelegramController.java:28) [classes/:?]
+	at controller.id.bmp.miner.TelegramController$$FastClassBySpringCGLIB$$2eee0e2c.invoke(<generated>) [classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) [spring-core-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) [spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) [spring-aop-5.3.9.jar:5.3.9]
+	at controller.id.bmp.miner.TelegramController$$EnhancerBySpringCGLIB$$ed644cb7.sendMessage(<generated>) [classes/:?]
+	at service.rest.id.bmp.miner.TelegramService.sendTelegram(TelegramService.java:43) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_421]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_421]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_421]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_421]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) [spring-boot-actuator-2.5.4.jar:2.5.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_421]
+2025-05-11 23:02:14.978 DEBUG TelegramService - [sendTelegram] Response : {
+  "code" : 400,
+  "message" : "Bad request"
+}
+2025-05-11 23:02:14.978 DEBUG TelegramService - [sendTelegram] Completed
+2025-05-11 23:02:29.632 INFO  Application - Starting Application using Java 1.8.0_421 on DESKTOP-5USB974 with PID 33276 (E:\Greatest-Art-Work\Persona\crypto-4life\target\classes started by HitMan in E:\Greatest-Art-Work\Persona\crypto-4life)
+2025-05-11 23:02:29.640 DEBUG Application - Running with Spring Boot v2.5.4, Spring v5.3.9
+2025-05-11 23:02:29.641 INFO  Application - No active profile set, falling back to default profiles: default
+2025-05-11 23:02:30.787 INFO  ConfigurationClassEnhancer - @Bean method PropertyManager.propertyConfigInDev is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2025-05-11 23:02:31.469 INFO  TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2025-05-11 23:02:31.647 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1953 ms
+2025-05-11 23:02:33.722 INFO  EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-11 23:02:33.808 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-11 23:02:33.811 INFO  DispatcherServlet - Completed initialization in 3 ms
+2025-05-11 23:02:33.812 INFO  TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path '/miner'
+2025-05-11 23:02:33.837 INFO  Application - Started Application in 4.898 seconds (JVM running for 6.901)
+2025-05-11 23:02:33.850 INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-11 23:02:34.206 INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-11 23:02:39.172 DEBUG TelegramService - [sendTelegram] Request : "POST /telegram/send"
+2025-05-11 23:02:39.203 DEBUG TelegramController - [sendMessage] Start
+2025-05-11 23:02:42.842 DEBUG EncryptionManager - [Constructor] Start
+2025-05-11 23:02:42.846 DEBUG EncryptionManager - [Constructor] Completed
+2025-05-11 23:02:51.651 ERROR PropertyManager - [key] [ {
+  "methodName" : "getRequiredProperty",
+  "fileName" : "AbstractPropertyResolver.java",
+  "lineNumber" : 183,
+  "className" : "org.springframework.core.env.AbstractPropertyResolver",
+  "nativeMethod" : false
+}, {
+  "methodName" : "getRequiredProperty",
+  "fileName" : "AbstractEnvironment.java",
+  "lineNumber" : 609,
+  "className" : "org.springframework.core.env.AbstractEnvironment",
+  "nativeMethod" : false
+}, {
+  "methodName" : "getProperty",
+  "fileName" : "PropertyManager.java",
+  "lineNumber" : 87,
+  "className" : "manager.id.bmp.miner.PropertyManager",
+  "nativeMethod" : false
+}, {
+  "methodName" : "getProperty",
+  "fileName" : "PropertyManager.java",
+  "lineNumber" : 41,
+  "className" : "manager.id.bmp.miner.PropertyManager",
+  "nativeMethod" : false
+}, {
+  "methodName" : "getProperty",
+  "fileName" : "BaseController.java",
+  "lineNumber" : 37,
+  "className" : "controller.id.bmp.miner.BaseController",
+  "nativeMethod" : false
+}, {
+  "methodName" : "sendMessage",
+  "fileName" : "TelegramController.java",
+  "lineNumber" : 29,
+  "className" : "controller.id.bmp.miner.TelegramController",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invoke",
+  "fileName" : "<generated>",
+  "lineNumber" : -1,
+  "className" : "controller.id.bmp.miner.TelegramController$$FastClassBySpringCGLIB$$2eee0e2c",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invoke",
+  "fileName" : "MethodProxy.java",
+  "lineNumber" : 218,
+  "className" : "org.springframework.cglib.proxy.MethodProxy",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invokeJoinpoint",
+  "fileName" : "CglibAopProxy.java",
+  "lineNumber" : 779,
+  "className" : "org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation",
+  "nativeMethod" : false
+}, {
+  "methodName" : "proceed",
+  "fileName" : "ReflectiveMethodInvocation.java",
+  "lineNumber" : 163,
+  "className" : "org.springframework.aop.framework.ReflectiveMethodInvocation",
+  "nativeMethod" : false
+}, {
+  "methodName" : "proceed",
+  "fileName" : "CglibAopProxy.java",
+  "lineNumber" : 750,
+  "className" : "org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invoke",
+  "fileName" : "PersistenceExceptionTranslationInterceptor.java",
+  "lineNumber" : 137,
+  "className" : "org.springframework.dao.support.PersistenceExceptionTranslationInterceptor",
+  "nativeMethod" : false
+}, {
+  "methodName" : "proceed",
+  "fileName" : "ReflectiveMethodInvocation.java",
+  "lineNumber" : 186,
+  "className" : "org.springframework.aop.framework.ReflectiveMethodInvocation",
+  "nativeMethod" : false
+}, {
+  "methodName" : "proceed",
+  "fileName" : "CglibAopProxy.java",
+  "lineNumber" : 750,
+  "className" : "org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation",
+  "nativeMethod" : false
+}, {
+  "methodName" : "intercept",
+  "fileName" : "CglibAopProxy.java",
+  "lineNumber" : 692,
+  "className" : "org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor",
+  "nativeMethod" : false
+}, {
+  "methodName" : "sendMessage",
+  "fileName" : "<generated>",
+  "lineNumber" : -1,
+  "className" : "controller.id.bmp.miner.TelegramController$$EnhancerBySpringCGLIB$$5d05c590",
+  "nativeMethod" : false
+}, {
+  "methodName" : "sendTelegram",
+  "fileName" : "TelegramService.java",
+  "lineNumber" : 43,
+  "className" : "service.rest.id.bmp.miner.TelegramService",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invoke0",
+  "fileName" : "NativeMethodAccessorImpl.java",
+  "lineNumber" : -2,
+  "className" : "sun.reflect.NativeMethodAccessorImpl",
+  "nativeMethod" : true
+}, {
+  "methodName" : "invoke",
+  "fileName" : "NativeMethodAccessorImpl.java",
+  "lineNumber" : 62,
+  "className" : "sun.reflect.NativeMethodAccessorImpl",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invoke",
+  "fileName" : "DelegatingMethodAccessorImpl.java",
+  "lineNumber" : 43,
+  "className" : "sun.reflect.DelegatingMethodAccessorImpl",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invoke",
+  "fileName" : "Method.java",
+  "lineNumber" : 498,
+  "className" : "java.lang.reflect.Method",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doInvoke",
+  "fileName" : "InvocableHandlerMethod.java",
+  "lineNumber" : 197,
+  "className" : "org.springframework.web.method.support.InvocableHandlerMethod",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invokeForRequest",
+  "fileName" : "InvocableHandlerMethod.java",
+  "lineNumber" : 141,
+  "className" : "org.springframework.web.method.support.InvocableHandlerMethod",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invokeAndHandle",
+  "fileName" : "ServletInvocableHandlerMethod.java",
+  "lineNumber" : 106,
+  "className" : "org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invokeHandlerMethod",
+  "fileName" : "RequestMappingHandlerAdapter.java",
+  "lineNumber" : 895,
+  "className" : "org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "handleInternal",
+  "fileName" : "RequestMappingHandlerAdapter.java",
+  "lineNumber" : 808,
+  "className" : "org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "handle",
+  "fileName" : "AbstractHandlerMethodAdapter.java",
+  "lineNumber" : 87,
+  "className" : "org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doDispatch",
+  "fileName" : "DispatcherServlet.java",
+  "lineNumber" : 1064,
+  "className" : "org.springframework.web.servlet.DispatcherServlet",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doService",
+  "fileName" : "DispatcherServlet.java",
+  "lineNumber" : 963,
+  "className" : "org.springframework.web.servlet.DispatcherServlet",
+  "nativeMethod" : false
+}, {
+  "methodName" : "processRequest",
+  "fileName" : "FrameworkServlet.java",
+  "lineNumber" : 1006,
+  "className" : "org.springframework.web.servlet.FrameworkServlet",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doPost",
+  "fileName" : "FrameworkServlet.java",
+  "lineNumber" : 909,
+  "className" : "org.springframework.web.servlet.FrameworkServlet",
+  "nativeMethod" : false
+}, {
+  "methodName" : "service",
+  "fileName" : "HttpServlet.java",
+  "lineNumber" : 681,
+  "className" : "javax.servlet.http.HttpServlet",
+  "nativeMethod" : false
+}, {
+  "methodName" : "service",
+  "fileName" : "FrameworkServlet.java",
+  "lineNumber" : 883,
+  "className" : "org.springframework.web.servlet.FrameworkServlet",
+  "nativeMethod" : false
+}, {
+  "methodName" : "service",
+  "fileName" : "HttpServlet.java",
+  "lineNumber" : 764,
+  "className" : "javax.servlet.http.HttpServlet",
+  "nativeMethod" : false
+}, {
+  "methodName" : "internalDoFilter",
+  "fileName" : "ApplicationFilterChain.java",
+  "lineNumber" : 227,
+  "className" : "org.apache.catalina.core.ApplicationFilterChain",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilter",
+  "fileName" : "ApplicationFilterChain.java",
+  "lineNumber" : 162,
+  "className" : "org.apache.catalina.core.ApplicationFilterChain",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilter",
+  "fileName" : "WsFilter.java",
+  "lineNumber" : 53,
+  "className" : "org.apache.tomcat.websocket.server.WsFilter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "internalDoFilter",
+  "fileName" : "ApplicationFilterChain.java",
+  "lineNumber" : 189,
+  "className" : "org.apache.catalina.core.ApplicationFilterChain",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilter",
+  "fileName" : "ApplicationFilterChain.java",
+  "lineNumber" : 162,
+  "className" : "org.apache.catalina.core.ApplicationFilterChain",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilterInternal",
+  "fileName" : "RequestContextFilter.java",
+  "lineNumber" : 100,
+  "className" : "org.springframework.web.filter.RequestContextFilter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilter",
+  "fileName" : "OncePerRequestFilter.java",
+  "lineNumber" : 119,
+  "className" : "org.springframework.web.filter.OncePerRequestFilter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "internalDoFilter",
+  "fileName" : "ApplicationFilterChain.java",
+  "lineNumber" : 189,
+  "className" : "org.apache.catalina.core.ApplicationFilterChain",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilter",
+  "fileName" : "ApplicationFilterChain.java",
+  "lineNumber" : 162,
+  "className" : "org.apache.catalina.core.ApplicationFilterChain",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilterInternal",
+  "fileName" : "FormContentFilter.java",
+  "lineNumber" : 93,
+  "className" : "org.springframework.web.filter.FormContentFilter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilter",
+  "fileName" : "OncePerRequestFilter.java",
+  "lineNumber" : 119,
+  "className" : "org.springframework.web.filter.OncePerRequestFilter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "internalDoFilter",
+  "fileName" : "ApplicationFilterChain.java",
+  "lineNumber" : 189,
+  "className" : "org.apache.catalina.core.ApplicationFilterChain",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilter",
+  "fileName" : "ApplicationFilterChain.java",
+  "lineNumber" : 162,
+  "className" : "org.apache.catalina.core.ApplicationFilterChain",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilterInternal",
+  "fileName" : "WebMvcMetricsFilter.java",
+  "lineNumber" : 96,
+  "className" : "org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilter",
+  "fileName" : "OncePerRequestFilter.java",
+  "lineNumber" : 119,
+  "className" : "org.springframework.web.filter.OncePerRequestFilter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "internalDoFilter",
+  "fileName" : "ApplicationFilterChain.java",
+  "lineNumber" : 189,
+  "className" : "org.apache.catalina.core.ApplicationFilterChain",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilter",
+  "fileName" : "ApplicationFilterChain.java",
+  "lineNumber" : 162,
+  "className" : "org.apache.catalina.core.ApplicationFilterChain",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilterInternal",
+  "fileName" : "CharacterEncodingFilter.java",
+  "lineNumber" : 201,
+  "className" : "org.springframework.web.filter.CharacterEncodingFilter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilter",
+  "fileName" : "OncePerRequestFilter.java",
+  "lineNumber" : 119,
+  "className" : "org.springframework.web.filter.OncePerRequestFilter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "internalDoFilter",
+  "fileName" : "ApplicationFilterChain.java",
+  "lineNumber" : 189,
+  "className" : "org.apache.catalina.core.ApplicationFilterChain",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doFilter",
+  "fileName" : "ApplicationFilterChain.java",
+  "lineNumber" : 162,
+  "className" : "org.apache.catalina.core.ApplicationFilterChain",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invoke",
+  "fileName" : "StandardWrapperValve.java",
+  "lineNumber" : 197,
+  "className" : "org.apache.catalina.core.StandardWrapperValve",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invoke",
+  "fileName" : "StandardContextValve.java",
+  "lineNumber" : 97,
+  "className" : "org.apache.catalina.core.StandardContextValve",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invoke",
+  "fileName" : "AuthenticatorBase.java",
+  "lineNumber" : 542,
+  "className" : "org.apache.catalina.authenticator.AuthenticatorBase",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invoke",
+  "fileName" : "StandardHostValve.java",
+  "lineNumber" : 135,
+  "className" : "org.apache.catalina.core.StandardHostValve",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invoke",
+  "fileName" : "ErrorReportValve.java",
+  "lineNumber" : 92,
+  "className" : "org.apache.catalina.valves.ErrorReportValve",
+  "nativeMethod" : false
+}, {
+  "methodName" : "invoke",
+  "fileName" : "StandardEngineValve.java",
+  "lineNumber" : 78,
+  "className" : "org.apache.catalina.core.StandardEngineValve",
+  "nativeMethod" : false
+}, {
+  "methodName" : "service",
+  "fileName" : "CoyoteAdapter.java",
+  "lineNumber" : 357,
+  "className" : "org.apache.catalina.connector.CoyoteAdapter",
+  "nativeMethod" : false
+}, {
+  "methodName" : "service",
+  "fileName" : "Http11Processor.java",
+  "lineNumber" : 382,
+  "className" : "org.apache.coyote.http11.Http11Processor",
+  "nativeMethod" : false
+}, {
+  "methodName" : "process",
+  "fileName" : "AbstractProcessorLight.java",
+  "lineNumber" : 65,
+  "className" : "org.apache.coyote.AbstractProcessorLight",
+  "nativeMethod" : false
+}, {
+  "methodName" : "process",
+  "fileName" : "AbstractProtocol.java",
+  "lineNumber" : 893,
+  "className" : "org.apache.coyote.AbstractProtocol$ConnectionHandler",
+  "nativeMethod" : false
+}, {
+  "methodName" : "doRun",
+  "fileName" : "NioEndpoint.java",
+  "lineNumber" : 1726,
+  "className" : "org.apache.tomcat.util.net.NioEndpoint$SocketProcessor",
+  "nativeMethod" : false
+}, {
+  "methodName" : "run",
+  "fileName" : "SocketProcessorBase.java",
+  "lineNumber" : 49,
+  "className" : "org.apache.tomcat.util.net.SocketProcessorBase",
+  "nativeMethod" : false
+}, {
+  "methodName" : "runWorker",
+  "fileName" : "ThreadPoolExecutor.java",
+  "lineNumber" : 1191,
+  "className" : "org.apache.tomcat.util.threads.ThreadPoolExecutor",
+  "nativeMethod" : false
+}, {
+  "methodName" : "run",
+  "fileName" : "ThreadPoolExecutor.java",
+  "lineNumber" : 659,
+  "className" : "org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker",
+  "nativeMethod" : false
+}, {
+  "methodName" : "run",
+  "fileName" : "TaskThread.java",
+  "lineNumber" : 61,
+  "className" : "org.apache.tomcat.util.threads.TaskThread$WrappingRunnable",
+  "nativeMethod" : false
+}, {
+  "methodName" : "run",
+  "fileName" : "Thread.java",
+  "lineNumber" : 750,
+  "className" : "java.lang.Thread",
+  "nativeMethod" : false
+} ]
+2025-05-11 23:03:00.280 ERROR TelegramController - sendMessage
+java.lang.NegativeArraySizeException: null
+	at manager.id.bmp.miner.EncryptionManager.decrypt(EncryptionManager.java:97) ~[classes/:?]
+	at manager.id.bmp.miner.EncryptionManager.decrypt(EncryptionManager.java:88) ~[classes/:?]
+	at controller.id.bmp.miner.TelegramController.sendMessage(TelegramController.java:29) [classes/:?]
+	at controller.id.bmp.miner.TelegramController$$FastClassBySpringCGLIB$$2eee0e2c.invoke(<generated>) [classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) [spring-core-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) [spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) [spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) [spring-aop-5.3.9.jar:5.3.9]
+	at controller.id.bmp.miner.TelegramController$$EnhancerBySpringCGLIB$$5d05c590.sendMessage(<generated>) [classes/:?]
+	at service.rest.id.bmp.miner.TelegramService.sendTelegram(TelegramService.java:43) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_421]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_421]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_421]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_421]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) [spring-boot-actuator-2.5.4.jar:2.5.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_421]
+2025-05-11 23:03:00.310 DEBUG TelegramService - [sendTelegram] Response : {
+  "code" : 400,
+  "message" : "Bad request"
+}
+2025-05-11 23:03:00.311 DEBUG TelegramService - [sendTelegram] Completed
+2025-05-11 23:04:22.333 INFO  Application - Starting Application using Java 1.8.0_421 on DESKTOP-5USB974 with PID 31836 (E:\Greatest-Art-Work\Persona\crypto-4life\target\classes started by HitMan in E:\Greatest-Art-Work\Persona\crypto-4life)
+2025-05-11 23:04:22.341 DEBUG Application - Running with Spring Boot v2.5.4, Spring v5.3.9
+2025-05-11 23:04:22.342 INFO  Application - No active profile set, falling back to default profiles: default
+2025-05-11 23:04:23.477 INFO  ConfigurationClassEnhancer - @Bean method PropertyManager.propertyConfigInDev is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2025-05-11 23:04:24.025 INFO  TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2025-05-11 23:04:24.192 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1790 ms
+2025-05-11 23:04:26.538 INFO  EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-11 23:04:26.615 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-11 23:04:26.616 INFO  DispatcherServlet - Completed initialization in 1 ms
+2025-05-11 23:04:26.617 INFO  TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path '/miner'
+2025-05-11 23:04:26.635 INFO  Application - Started Application in 4.958 seconds (JVM running for 6.818)
+2025-05-11 23:04:26.647 INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-11 23:04:27.018 INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-11 23:04:31.650 DEBUG TelegramService - [sendTelegram] Request : "POST /telegram/send"
+2025-05-11 23:04:31.690 DEBUG TelegramController - [sendMessage] Start
+2025-05-11 23:04:31.694 DEBUG EncryptionManager - [Constructor] Start
+2025-05-11 23:04:31.695 DEBUG EncryptionManager - [Constructor] Completed
+2025-05-11 23:04:39.614 DEBUG TelegramController - [sendMessage] Status Code: 200
+2025-05-11 23:04:39.614 DEBUG TelegramController - [sendMessage] Response: {"ok":true,"result":{"message_id":3,"from":{"id":7208339263,"is_bot":true,"first_name":"TanyaGatot","username":"TanyaGatot_bot"},"chat":{"id":128781998,"first_name":"permadi","username":"b_permadi","type":"private"},"date":1746979479,"text":"Moon Shoot! \ud83d\ude80"}}
+2025-05-11 23:04:39.620 DEBUG TelegramService - [sendTelegram] Response : {
+  "code" : 200,
+  "message" : "OK"
+}
+2025-05-11 23:04:39.621 DEBUG TelegramService - [sendTelegram] Completed
+2025-05-11 23:07:35.376 INFO  Application - Starting Application using Java 1.8.0_421 on DESKTOP-5USB974 with PID 23072 (E:\Greatest-Art-Work\Persona\crypto-4life\target\classes started by HitMan in E:\Greatest-Art-Work\Persona\crypto-4life)
+2025-05-11 23:07:35.420 DEBUG Application - Running with Spring Boot v2.5.4, Spring v5.3.9
+2025-05-11 23:07:35.421 INFO  Application - No active profile set, falling back to default profiles: default
+2025-05-11 23:07:36.966 INFO  ConfigurationClassEnhancer - @Bean method PropertyManager.propertyConfigInDev is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2025-05-11 23:07:37.422 INFO  TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2025-05-11 23:07:37.557 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2102 ms
+2025-05-11 23:07:38.752 INFO  EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-11 23:07:38.783 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-11 23:07:38.784 INFO  DispatcherServlet - Completed initialization in 1 ms
+2025-05-11 23:07:38.785 INFO  TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path '/miner'
+2025-05-11 23:07:38.796 INFO  Application - Started Application in 3.854 seconds (JVM running for 5.656)
+2025-05-11 23:07:38.800 INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-11 23:07:39.135 INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-11 23:07:42.314 DEBUG TelegramService - [sendTelegram] Request : "POST /telegram/send"
+2025-05-11 23:07:42.322 DEBUG TelegramController - [sendMessage] Start
+2025-05-11 23:07:42.322 DEBUG EncryptionManager - [Constructor] Start
+2025-05-11 23:07:42.324 DEBUG EncryptionManager - [Constructor] Completed
+2025-05-11 23:07:43.426 DEBUG TelegramController - [sendMessage] Status Code: 200
+2025-05-11 23:07:43.426 DEBUG TelegramController - [sendMessage] Response: {"ok":true,"result":{"message_id":4,"from":{"id":7208339263,"is_bot":true,"first_name":"TanyaGatot","username":"TanyaGatot_bot"},"chat":{"id":128781998,"first_name":"permadi","username":"b_permadi","type":"private"},"date":1746979663,"text":"Moon Shoot! \ud83d\ude80"}}
+2025-05-11 23:07:43.428 DEBUG TelegramService - [sendTelegram] Response : {
+  "code" : 200,
+  "message" : "OK"
+}
+2025-05-11 23:07:43.428 DEBUG TelegramService - [sendTelegram] Completed
+2025-05-11 23:10:36.429 INFO  Application - Starting Application using Java 1.8.0_421 on DESKTOP-5USB974 with PID 33368 (E:\Greatest-Art-Work\Persona\crypto-4life\target\classes started by HitMan in E:\Greatest-Art-Work\Persona\crypto-4life)
+2025-05-11 23:10:36.440 DEBUG Application - Running with Spring Boot v2.5.4, Spring v5.3.9
+2025-05-11 23:10:36.441 INFO  Application - No active profile set, falling back to default profiles: default
+2025-05-11 23:10:37.729 INFO  ConfigurationClassEnhancer - @Bean method PropertyManager.propertyConfigInDev is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2025-05-11 23:10:38.160 INFO  TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2025-05-11 23:10:38.327 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1769 ms
+2025-05-11 23:10:39.981 INFO  EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-11 23:10:40.038 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-11 23:10:40.040 INFO  DispatcherServlet - Completed initialization in 2 ms
+2025-05-11 23:10:40.042 INFO  TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path '/miner'
+2025-05-11 23:10:40.058 INFO  Application - Started Application in 4.256 seconds (JVM running for 6.377)
+2025-05-11 23:10:40.066 INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-11 23:10:40.986 INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-11 23:11:42.107 DEBUG TelegramService - [testTelegramBot] Request : "POST /telegram/test"
+2025-05-11 23:11:42.114 DEBUG TelegramService - [testTelegramBot] Response : {
+  "code" : 400,
+  "message" : "Telegram bot is disabled"
+}
+2025-05-11 23:11:42.114 DEBUG TelegramService - [testTelegramBot] Completed
+2025-05-11 23:12:07.924 INFO  Application - Starting Application using Java 1.8.0_421 on DESKTOP-5USB974 with PID 33188 (E:\Greatest-Art-Work\Persona\crypto-4life\target\classes started by HitMan in E:\Greatest-Art-Work\Persona\crypto-4life)
+2025-05-11 23:12:07.933 DEBUG Application - Running with Spring Boot v2.5.4, Spring v5.3.9
+2025-05-11 23:12:07.934 INFO  Application - No active profile set, falling back to default profiles: default
+2025-05-11 23:12:08.896 INFO  ConfigurationClassEnhancer - @Bean method PropertyManager.propertyConfigInDev is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2025-05-11 23:12:09.541 INFO  TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2025-05-11 23:12:09.684 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1705 ms
+2025-05-11 23:12:11.723 INFO  EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-11 23:12:11.793 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-11 23:12:11.794 INFO  DispatcherServlet - Completed initialization in 1 ms
+2025-05-11 23:12:11.795 INFO  TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path '/miner'
+2025-05-11 23:12:11.812 INFO  Application - Started Application in 4.499 seconds (JVM running for 6.246)
+2025-05-11 23:12:11.821 INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-11 23:12:12.184 INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-11 23:12:25.437 DEBUG TelegramService - [testTelegramBot] Request : "POST /telegram/test"
+2025-05-11 23:12:25.465 DEBUG TelegramController - [sendMessage] Start
+2025-05-11 23:12:25.467 DEBUG EncryptionManager - [Constructor] Start
+2025-05-11 23:12:25.467 DEBUG EncryptionManager - [Constructor] Completed
+2025-05-11 23:12:32.954 DEBUG TelegramController - [sendMessage] Status Code: 200
+2025-05-11 23:12:32.955 DEBUG TelegramController - [sendMessage] Response: {"ok":true,"result":{"message_id":5,"from":{"id":7208339263,"is_bot":true,"first_name":"TanyaGatot","username":"TanyaGatot_bot"},"chat":{"id":128781998,"first_name":"permadi","username":"b_permadi","type":"private"},"date":1746979952,"text":"Moon Shoot! \ud83d\ude80"}}
+2025-05-11 23:12:32.960 DEBUG TelegramService - [testTelegramBot] Response : {
+  "code" : 200,
+  "message" : "OK"
+}
+2025-05-11 23:12:32.961 DEBUG TelegramService - [testTelegramBot] Completed
+2025-05-11 23:15:01.178 INFO  ConfigurationClassEnhancer - @Bean method PropertyManager.propertyConfigInDev is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2025-05-11 23:15:01.761 INFO  TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2025-05-11 23:15:01.897 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1708 ms
+2025-05-11 23:15:03.835 INFO  EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-11 23:15:03.916 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-11 23:15:03.917 INFO  DispatcherServlet - Completed initialization in 1 ms
+2025-05-11 23:15:03.918 INFO  TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path '/miner'
+2025-05-11 23:15:03.944 INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-11 23:15:04.309 INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-11 23:15:37.642 INFO  Application - Starting Application using Java 1.8.0_421 on DESKTOP-5USB974 with PID 32828 (E:\Greatest-Art-Work\Persona\crypto-4life\target\classes started by HitMan in E:\Greatest-Art-Work\Persona\crypto-4life)
+2025-05-11 23:15:37.652 DEBUG Application - Running with Spring Boot v2.5.4, Spring v5.3.9
+2025-05-11 23:15:37.654 INFO  Application - No active profile set, falling back to default profiles: default
+2025-05-11 23:15:38.678 INFO  ConfigurationClassEnhancer - @Bean method PropertyManager.propertyConfigInDev is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2025-05-11 23:15:39.295 INFO  TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2025-05-11 23:15:39.432 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1727 ms
+2025-05-11 23:15:41.232 INFO  EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-11 23:15:41.305 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-11 23:15:41.307 INFO  DispatcherServlet - Completed initialization in 2 ms
+2025-05-11 23:15:41.308 INFO  TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path '/miner'
+2025-05-11 23:15:41.322 INFO  Application - Started Application in 4.277 seconds (JVM running for 6.088)
+2025-05-11 23:15:41.333 INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-11 23:15:41.678 INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-11 23:15:47.533 DEBUG TelegramService - [testTelegramBot] Request : "POST /telegram/test"
+2025-05-11 23:15:47.565 DEBUG TelegramController - [sendMessage] Start
+2025-05-11 23:15:47.568 DEBUG EncryptionManager - [Constructor] Start
+2025-05-11 23:15:47.568 DEBUG EncryptionManager - [Constructor] Completed
+2025-05-11 23:15:49.129 DEBUG TelegramController - [sendMessage] Status Code: 200
+2025-05-11 23:15:49.129 DEBUG TelegramController - [sendMessage] Response: {"ok":true,"result":{"message_id":7,"from":{"id":7208339263,"is_bot":true,"first_name":"TanyaGatot","username":"TanyaGatot_bot"},"chat":{"id":128781998,"first_name":"permadi","username":"b_permadi","type":"private"},"date":1746980149,"text":"Moon Shoot! \ud83d\ude80"}}
+2025-05-11 23:15:49.135 DEBUG TelegramService - [testTelegramBot] Response : {
+  "code" : 200,
+  "message" : "OK"
+}
+2025-05-11 23:15:49.135 DEBUG TelegramService - [testTelegramBot] Completed

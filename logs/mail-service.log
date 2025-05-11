@@ -1,0 +1,15 @@
+2025-05-11 21:58:00.830 INFO  Application - Starting Application using Java 1.8.0_421 on DESKTOP-5USB974 with PID 10988 (E:\Greatest-Art-Work\Persona\crypto-4life\target\classes started by HitMan in E:\Greatest-Art-Work\Persona\crypto-4life)
+2025-05-11 21:58:00.835 DEBUG Application - Running with Spring Boot v2.5.4, Spring v5.3.9
+2025-05-11 21:58:00.835 INFO  Application - No active profile set, falling back to default profiles: default
+2025-05-11 21:58:01.551 INFO  ConfigurationClassEnhancer - @Bean method PropertyManager.propertyConfigInDev is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2025-05-11 21:58:01.801 INFO  TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2025-05-11 21:58:01.917 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1018 ms
+2025-05-11 21:58:03.087 INFO  EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-11 21:58:03.127 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-11 21:58:03.129 INFO  DispatcherServlet - Completed initialization in 1 ms
+2025-05-11 21:58:03.132 INFO  TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path '/miner'
+2025-05-11 21:58:03.145 INFO  Application - Started Application in 2.756 seconds (JVM running for 4.113)
+2025-05-11 21:58:03.150 INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-11 21:58:03.394 INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-11 21:58:18.907 INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-11 21:58:19.046 INFO  HikariDataSource - HikariPool-1 - Shutdown completed.
