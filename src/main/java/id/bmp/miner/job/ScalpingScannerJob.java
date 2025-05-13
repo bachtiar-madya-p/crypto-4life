@@ -3,6 +3,7 @@ package id.bmp.miner.job;
 import id.bmp.miner.controller.IndodaxController;
 import id.bmp.miner.controller.TelegramController;
 import id.bmp.miner.model.*;
+import id.bmp.miner.repository.ScalpingSignalHistoryRepository;
 import id.bmp.miner.repository.ScalpingSignalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -31,6 +32,8 @@ public class ScalpingScannerJob extends BaseJob {
 
     @Autowired
     private ScalpingSignalRepository scalpingSignalRepository;
+    @Autowired
+    private ScalpingSignalHistoryRepository scalpingSignalHistoryRepository;
 
     private double balance = 100_000; // Simulated capital in IDR
 
@@ -67,7 +70,7 @@ public class ScalpingScannerJob extends BaseJob {
             for (IndodaxMarketTicker ticker : topScalpingCoins) {
 
                 if (openMarkets.contains(ticker.getAlias())) {
-                    log.debug(methodName, "[SCALPING] 🔁 Skipping already open position: " + ticker.getAlias());
+                    log.debug(methodName, "[SCALPING] 🔁 Skipping ("+ticker.getAlias()+"), already open position");
                     continue;
                 }
 
@@ -112,6 +115,7 @@ public class ScalpingScannerJob extends BaseJob {
 
                     ScalpingSignal signal = new ScalpingSignal();
                     signal.setMarket(ticker.getAlias());
+                    signal.setTransactionId(UUID.randomUUID().toString());
                     signal.setBuyPrice(analysis.getPrice());
                     signal.setBuyAmount(buyAmount);
                     signal.setInitialCapital(balance);
@@ -130,6 +134,7 @@ public class ScalpingScannerJob extends BaseJob {
                     signal.setPompom(isPump || earlyPump);
 
                     scalpingSignalRepository.insertScalpingSignal(signal);
+                    scalpingSignalHistoryRepository.insertScalpingSignal(signal);
                     String message = "[SCALPING] 🟢 BUY Signal (" + ticker.getAlias() + ") Saved @ " + analysis.getPrice();
                     log.debug(methodName, message);
                     telegramController.sendMessage(message);

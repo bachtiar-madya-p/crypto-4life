@@ -2,6 +2,7 @@ package id.bmp.miner.job;
 
 import id.bmp.miner.controller.TelegramController;
 import id.bmp.miner.model.*;
+import id.bmp.miner.repository.ScalpingSignalHistoryRepository;
 import id.bmp.miner.repository.ScalpingSignalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,6 +26,9 @@ public class ScalpingCalculationJob extends BaseJob {
 
     @Autowired
     private ScalpingSignalRepository scalpingSignalRepository;
+
+    @Autowired
+    private ScalpingSignalHistoryRepository scalpingSignalHistoryRepository;
 
     public ScalpingCalculationJob() {
         log = getLogger(this.getClass());
@@ -58,12 +62,12 @@ public class ScalpingCalculationJob extends BaseJob {
 
                 if (changePct >= 0.7) {
                     if (strongUptrend && notOverbought) {
-                        String message = "\n[SCALPING] 📈 Market (" + signal.getMarket() + ") still trending UP, HOLD position.";
+                        String message = "\n[SCALPING] 📈 Market (" + signal.getMarket() + ") still trending UP, HOLD position.\n\n";
                         log.debug(methodName, message);
                         telegramController.sendMessage(message);
                         continue;
                     }
-                    String message = "\n[SCALPING] 📈 Market (" + signal.getMarket() + ") still trending UP, TAKE PROFIT("+profit+")! Sell @ " + analysis.getPrice();
+                    String message = "\n\n[SCALPING] 📈 Market (" + signal.getMarket() + ") still trending UP, TAKE PROFIT("+profit+")! Sell @ " + analysis.getPrice()+"\n\n";
                     log.debug(methodName, message);
                     telegramController.sendMessage(message);
 
@@ -71,9 +75,10 @@ public class ScalpingCalculationJob extends BaseJob {
                     signal.setProfit(profit);
                     signal.setSignalType("SELL");
                     signal.setOpenPosition(false);
-                    scalpingSignalRepository.insertScalpingSignal(signal);
+                    scalpingSignalRepository.deleteScalpingSignal(signal.getId());
+                    scalpingSignalHistoryRepository.insertScalpingSignal(signal);
                 } else if (changePct <= -0.5 || (signal.isPompom() && changePct <= -0.2)) {
-                    String message = "\n[SCALPING] 📉 Market (" + signal.getMarket() + ") still trending DOWN, STOP LOSS("+profit+")! Sell @ " + analysis.getPrice();
+                    String message = "\n[SCALPING] 📉 Market (" + signal.getMarket() + ") still trending DOWN, STOP LOSS("+profit+")! Sell @ " + analysis.getPrice()+"\n\n";
                     log.debug(methodName, message);
                     telegramController.sendMessage(message);
 
@@ -81,6 +86,7 @@ public class ScalpingCalculationJob extends BaseJob {
                     signal.setProfit(profit);
                     signal.setSignalType("SELL");
                     signal.setOpenPosition(false);
+                    scalpingSignalRepository.deleteScalpingSignal(signal.getId());
                     scalpingSignalRepository.insertScalpingSignal(signal);
                 }
             }

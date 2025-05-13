@@ -22,7 +22,7 @@ public class ScalpingSignalRepository extends BaseRepository {
         start(methodName);
         List<ScalpingSignal> scalpingSignals = new ArrayList<>();
 
-        String sql = "SELECT id, market, signal_time, buy_price, buy_amount, initial_capital, sell_price, profit, ema_fast, " +
+        String sql = "SELECT id, market, transaction_id, signal_time, buy_price, buy_amount, initial_capital, sell_price, profit, ema_fast, " +
                 "ema_slow, rsi, body_ratio, volume, avg_volume, is_body_strong AS bodyStrong, is_volume_spike AS volumeSpike, signal_type, is_executed AS executed, " +
                 "is_open_position AS openPosition, is_pump AS pompom " +
                 "FROM scalping_signal " +
@@ -42,13 +42,13 @@ public class ScalpingSignalRepository extends BaseRepository {
         start(methodName);
         boolean result = false;
 
-        String sql = "INSERT INTO crypto_4life.scalping_signal (" +
-                "    market, signal_time, buy_price, buy_amount, initial_capital," +
+        String sql = "INSERT INTO scalping_signal (" +
+                "    market, transaction_id, signal_time, buy_price, buy_amount, initial_capital," +
                 "    sell_price, profit, ema_fast, ema_slow, rsi, body_ratio," +
                 "    volume, avg_volume, is_body_strong, is_volume_spike," +
                 "    signal_type, is_executed, is_open_position, is_pump" +
                 ") VALUES (" +
-                "    :market, :signalTime, :buyPrice, :buyAmount, :initialCapital," +
+                "    :market, transactionId, :signalTime, :buyPrice, :buyAmount, :initialCapital," +
                 "    :sellPrice, :profit, :emaFast, :emaSlow, :rsi, :bodyRatio," +
                 "    :volume, :avgVolume, :bodyStrong, :volumeSpike," +
                 "    :signalType, :executed, :openPosition, :pompom" +
@@ -56,6 +56,25 @@ public class ScalpingSignalRepository extends BaseRepository {
 
         try (Handle h = getHandle(); Update update = h.createUpdate(sql)) {
             update.bindBean(scalpingSignal);
+            result = executeUpdate(update);
+            log.debug(methodName, "Result: " + result);
+        } catch (Exception ex) {
+            log.error(methodName, ex);
+        }
+        completed(methodName);
+        return result;
+    }
+
+    public boolean deleteScalpingSignal(int id) {
+        String methodName = "deleteScalpingSignal";
+        start(methodName);
+        boolean result = false;
+
+        String sql = "DELETE FROM scalping_signal " +
+                "WHERE id= :id;";
+
+        try (Handle h = getHandle(); Update update = h.createUpdate(sql)) {
+            update.bind("id", id);
             result = executeUpdate(update);
             log.debug(methodName, "Result: " + result);
         } catch (Exception ex) {

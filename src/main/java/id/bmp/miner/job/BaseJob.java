@@ -113,7 +113,7 @@ public class BaseJob {
                 .filter(t -> t.getHigh() / t.getLow() > 1.03)
                 .filter(t -> t.getPosisiHarga() < 0.3)
                 .sorted(Comparator.comparingDouble(IndodaxMarketTicker::getVolIdr).reversed())
-                .limit(10)
+                .limit(20)
                 .collect(Collectors.toList());
     }
 

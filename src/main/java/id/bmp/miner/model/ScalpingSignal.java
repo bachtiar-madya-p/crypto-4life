@@ -4,6 +4,7 @@ public class ScalpingSignal {
 
     private int id;
     private String market;
+    private String transactionId;
     private long signalTime;
     private double buyPrice;
     private double buyAmount;
@@ -40,6 +41,14 @@ public class ScalpingSignal {
 
     public void setMarket(String market) {
         this.market = market;
+    }
+
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
     }
 
     public long getSignalTime() {
