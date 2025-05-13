@@ -9,12 +9,10 @@ public class Console {
     private static EncryptConfig config = new EncryptConfig();
 
     public static void main(String[] args) {
-        String[] strArr = {"203.194.114.182","crypto_4life","crypto_user","CryptoLife!2025"};
+        String[] strArr = {"","","",""};
         encrypt(strArr);
         decrypt(strArr);
 
-/*       String encrypted = EncryptionManager.getInstance().encrypt("bbjn qmob nwhk twzj");
-       System.out.println(encrypted);*/
     }
 
     static void encrypt(String[] arr) {
