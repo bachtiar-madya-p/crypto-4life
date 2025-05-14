@@ -9,7 +9,7 @@ public class Console {
     private static EncryptConfig config = new EncryptConfig();
 
     public static void main(String[] args) {
-        String[] strArr = {"","","",""};
+        String[] strArr = {"QbeWPTri71+OeDXTshm65IB8lZoc0Qds","XFA4PS5bvuBElYgrc52THA==","T9eZvNXd9U1nRLaFxDT+lMsLweIzP81i","QaHDN620xqnVVLMf5tW+Db5fonFmcfF+","zNbQUjeVid6efnMjFAlRzegNGSq9wzZJ"};
         encrypt(strArr);
         decrypt(strArr);
 

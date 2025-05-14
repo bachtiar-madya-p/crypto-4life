@@ -7,8 +7,11 @@ import id.bmp.miner.model.IndodaxCoinCandle;
 import id.bmp.miner.model.IndodaxMarket;
 import id.bmp.miner.model.IndodaxMarketTicker;
 import id.bmp.miner.util.log.AppLogger;
+import id.bmp.miner.util.property.Property;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -54,11 +57,22 @@ public class BaseJob {
      * Analyze the latest candle indicators and return calculated metrics
      */
     protected CandleAnalysisResult analyzeCandles(List<IndodaxCoinCandle> candles) {
-        IndodaxCoinCandle last = candles.get(candles.size() - 1);
-        double body = Math.abs(last.getClose() - last.getOpen());
-        double range = last.getHigh() - last.getLow();
-        double bodyRatio = range == 0 ? 0 : body / range;
+        if (candles == null || candles.size() < 22) {
+            throw new IllegalArgumentException(" 22 Candle is required for analysis");
+        }
 
+        IndodaxCoinCandle last = candles.get(candles.size() - 1);
+        double open = last.getOpen();
+        double close = last.getClose();
+        double high = last.getHigh();
+        double low = last.getLow();
+
+        // Rasio body candle to range
+        double body = Math.abs(close - open);
+        double range = high - low;
+        double bodyRatio = (range == 0) ? 0 : body / range;
+
+        // Volume spike check
         double lastVolume = Double.parseDouble(last.getVolume());
         double avgVolume = candles.subList(candles.size() - 21, candles.size() - 1)
                 .stream()
@@ -68,13 +82,15 @@ public class BaseJob {
         boolean isBodyStrong = bodyRatio >= 0.5;
         boolean isVolumeSpike = lastVolume >= avgVolume;
 
-        double emaFast = calculateEMA(candles, 9);
-        double emaSlow = calculateEMA(candles, 21);
-        double rsi = calculateRSI(candles, 14);
-        double price = last.getClose();
+        // EMA & RSI calculation
+        double emaFast = calculateEMA(candles, getIntProperty(Property.CANDLES_EMA_FAST));
+        double emaSlow =calculateEMA(candles, getIntProperty(Property.CANDLES_EMA_SLOW));
+        double rsi = calculateRSI(candles, getIntProperty(Property.CANDLES_RSI_PERIOD));
+        double price = close;
 
         return new CandleAnalysisResult(price, emaFast, emaSlow, rsi, isBodyStrong, isVolumeSpike);
     }
+
 
     /**
      * Extracts and normalizes ticker data from Indodax market response
@@ -100,6 +116,19 @@ public class BaseJob {
         }
         return tickers;
     }
+
+    protected String formatRupiah(double value) {
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setGroupingSeparator('.');
+        symbols.setDecimalSeparator(',');
+        DecimalFormat formatter = new DecimalFormat("###,##0.000000", symbols);
+        return "Rp" + formatter.format(value);
+    }
+
+    protected String format2Decimal(double value) {
+        return String.format("%.2f", value);
+    }
+
 
     /**
      * Filters and selects top scalping candidates based on:

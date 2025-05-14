@@ -70,17 +70,17 @@ public class ScalpingScannerJob extends BaseJob {
             for (IndodaxMarketTicker ticker : topScalpingCoins) {
 
                 if (openMarkets.contains(ticker.getAlias())) {
-                    log.debug(methodName, "[SCALPING] 🔁 Skipping ("+ticker.getAlias()+"), already open position");
+                    log.debug(methodName, "🔁 Skipping ("+ticker.getAlias()+"), already open position");
                     continue;
                 }
 
-                List<IndodaxCoinCandle> candles = fetchCandles(ticker.getAlias(), 5, 100);
+                List<IndodaxCoinCandle> candles = fetchCandles(ticker.getAlias(), 15, 100);
                 if (candles == null || candles.size() < 21) continue;
 
                 CandleAnalysisResult analysis = analyzeCandles(candles);
 
-                log.debug(methodName, "[SCALPING] 📊 Market: " + ticker.getAlias() + " | Price: " + analysis.getPrice() +
-                        " | EMA9: " + analysis.getEmaFast() + " | EMA21: " + analysis.getEmaSlow() + " | RSI: " + analysis.getRsi());
+                log.debug(methodName,"📊 Market: " + ticker.getAlias() + " | Price: " + formatRupiah(analysis.getPrice()) +" | EMA9: " + formatRupiah(analysis.getEmaFast()) +
+                                " | EMA21: " + formatRupiah(analysis.getEmaSlow()) + " | RSI: "+format2Decimal(analysis.getRsi())+" | StrongBody: " + analysis.isBodyStrong() + " | VolSpike: " + analysis.isVolumeSpike());
 
                 boolean isPump = false;
                 boolean earlyPump = false;
@@ -98,14 +98,14 @@ public class ScalpingScannerJob extends BaseJob {
                 }
 
                 if (isPump) {
-                    String message = "[SCALPING] ⚠️ Skipped due to price pump ≥ 5%%: " + ticker.getAlias();
+                    String message = "⚠️ Hard pump detected (≥5%): " + ticker.getAlias() + " | Skipped due to price pump ≥ 5%%";
                     log.debug(methodName, message);
-                    telegramController.sendMessage(message);
+                    telegramController.sendMessage("[SCALPING] " +message);
                     continue;
                 } else if (earlyPump) {
-                    String message = "[SCALPING] 🔍 Early pump detected (2–5%): " + ticker.getAlias();
+                    String message = "🔍 Early pump detected " + ticker.getAlias() + " (2–5%) : ";
                     log.debug(methodName, message);
-                    telegramController.sendMessage(message);
+                    telegramController.sendMessage("[SCALPING] " +message);
                 }
 
                 if (analysis.getRsi() >= 50 && analysis.getRsi() <= 70 && analysis.getEmaFast() > analysis.getEmaSlow()
@@ -135,9 +135,9 @@ public class ScalpingScannerJob extends BaseJob {
 
                     scalpingSignalRepository.insertScalpingSignal(signal);
                     scalpingSignalHistoryRepository.insertScalpingSignal(signal);
-                    String message = "[SCALPING] 🟢 BUY Signal (" + ticker.getAlias() + ") Saved @ " + analysis.getPrice();
+                    String message = "🟢 BUY Signal (" + ticker.getAlias() + ") Saved @ " + formatRupiah(analysis.getPrice());
                     log.debug(methodName, message);
-                    telegramController.sendMessage(message);
+                    telegramController.sendMessage("[SCALPING] " +message);
                 } else {
                     log.debug(methodName, "⏭️ Signal not valid for BUY yet.");
                 }

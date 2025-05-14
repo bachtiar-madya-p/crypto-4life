@@ -34,4 +34,9 @@ public class Property {
     public static final String IDX_CANDLE_TIME_FRAME = "idx.market.time-frame";
     public static final String IDX_CANDLE_LIMIT = "idx.market.candle-limit";
 
+    // Candles Config
+    public static final String CANDLES_EMA_FAST = "candles.ema.slow";
+    public static final String CANDLES_EMA_SLOW = "candles.ema.fast";
+    public static final String CANDLES_RSI_PERIOD = "candles.rsi.period";
+
 }
